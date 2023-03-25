@@ -21,7 +21,8 @@ int _putc(va_list li)
 {
 	char c = va_arg(li, int);
 
-	return (write(1, &c, 1));
+	_putchar(c);
+	return (1);
 }
 
 /**
@@ -37,9 +38,14 @@ int _puts(va_list li)
 
 	s = (va_arg(li, char*));
 
+	if (s == NULL)
+	{
+		_printf("(null)");
+		return (6);
+	}
 	for (i = 0; s[i]; i++)
-		;
-	return (write(1, s, i));
+		_putchar(s[i]);
+	return (i);
 }
 /**
  * _puti - writes integers and decimals to stdout
@@ -49,13 +55,13 @@ int _puts(va_list li)
  */
 int _puti(va_list li)
 {
-	int in;
+	int in, c;
 
 	in = (va_arg(li, int));
 
-	print_n(in);
+	c = print_n(in);
 
-	return (0);
+	return (c);
 }
 /**
  * _putu - writes unsigned int to stdout
@@ -65,7 +71,7 @@ int _puti(va_list li)
  */
 int _putu(va_list li)
 {
-	int m, j;
+	int m, j, c = 0;
 	unsigned long int n, i = 100000000;
 
 	n = (va_arg(li, unsigned long int));
@@ -73,10 +79,10 @@ int _putu(va_list li)
 	{
 		m = n / i;
 		j = n % i;
-		print_n(m);
-		print_n(j);
+		c = print_n(m);
+		c += print_n(j);
 	}
 	else
-		print_n(n);
-	return (0);
+		c = print_n(n);
+	return (c);
 }

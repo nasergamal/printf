@@ -13,6 +13,7 @@ typedef struct print
 	char spc;
 	int (*func)(va_list);
 } pr;
+int pri(const char *format, pr p[], va_list li);
 int _putchar(char c);
 int _putc(va_list li);
 int _puts(va_list li);
@@ -24,6 +25,6 @@ int _putx(va_list li);
 int _putX(va_list li);
 int _putp(va_list li);
 int _printf(const char *format, ...);
-void print_n(int in);
+int print_n(int in);
 
 #endif

@@ -7,7 +7,7 @@
  */
 int _puto(va_list li)
 {
-	int c, o[100];
+	int c, o[100], m;
 	unsigned long int n;
 
 	n = (va_arg(li, unsigned long int));
@@ -17,10 +17,11 @@ int _puto(va_list li)
 		o[c] = n % 8;
 		n /= 8;
 	}
+	m = c;
 	for (c -= 1; c >= 0; c--)
 		_putchar(o[c] + '0');
 
-	return (0);
+	return (m);
 }
 /**
  * _putx - writes Hex equivalent to given decimal to stdout
@@ -30,7 +31,7 @@ int _puto(va_list li)
  */
 int _putx(va_list li)
 {
-	int c;
+	int c, m;
 	char h[100];
 	unsigned long int n;
 
@@ -44,9 +45,10 @@ int _putx(va_list li)
 			h[c] = ((n % 16) + 87);
 		n /= 16;
 	}
+	m = c;
 	for (c -= 1; c >= 0; c--)
 		_putchar(h[c]);
-	return (0);
+	return (m);
 }
 /**
  * _putX - writes Hex(capital) equivalent to given decimal to stdout
@@ -56,7 +58,7 @@ int _putx(va_list li)
  */
 int _putX(va_list li)
 {
-	int c;
+	int c, m;
 	char h[100];
 	unsigned long int n;
 
@@ -70,9 +72,10 @@ int _putX(va_list li)
 			h[c] = (n % 16) + 55;
 		n /= 16;
 	}
+	m = c;
 	for (c -= 1; c >= 0; c--)
 		_putchar(h[c]);
-	return (0);
+	return (m);
 }
 /**
  * _putp - writes address to stdout
@@ -82,7 +85,7 @@ int _putX(va_list li)
  */
 int _putp(va_list li)
 {
-	int c;
+	int c, m = 2;
 	char p[100];
 
 	unsigned long int n;
@@ -99,9 +102,10 @@ int _putp(va_list li)
 	}
 	_putchar('0');
 	_putchar('x');
+	m += c;
 	for (c -= 1; c >= 0; c--)
 		_putchar(p[c]);
-	return (0);
+	return (m);
 }
 /**
  * print_n - writes digits to stdout
@@ -109,19 +113,31 @@ int _putp(va_list li)
  *
  * Return: void
  */
-void print_n(int in)
+int print_n(int in)
 {
-	int m = in;
+	int m = in, c = 0, i = 1, o;
 
 	if (in < 0)
 	{
 		_putchar('-');
-		m = -m;
+		m = m * -1;
+		c++;
 	}
-
-	if (m / 10)
+	if (m == 0)
 	{
-		print_n(m / 10);
+		_putchar('0');
+		c++;
+		return (c);
 	}
-	_putchar((m % 10) + '0');
+	while ((m / i) > 9)
+		i *= 10;
+	while (i > 0)
+	{
+		o = m / i;
+		o = o % 10;
+		c++;
+		_putchar(o + '0');
+		i /= 10;
+	}
+	return (c);
 }

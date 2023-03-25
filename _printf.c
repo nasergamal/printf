@@ -10,7 +10,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, c, n = 0;
+	int n;
 	va_list li;
 	pr p[] = {
 	{'c', _putc},
@@ -24,7 +24,26 @@ int _printf(const char *format, ...)
 	{'p', _putp},
 	{'0', NULL}
 };
-	va_start(li, format);
+	if (format)
+	{
+		va_start(li, format);
+		n = pri(format, p, li);
+		va_end(li);
+	}
+	return (n);
+}
+/**
+ * pri - complement _printf function
+ * @format: to be printed
+ * @p: struct
+ * @li: variadic list
+ *
+ * Return: count
+ */
+int pri(const char *format, pr p[], va_list li)
+{
+	int i, c, n = 0, m = 0;
+
 	for (i = 0; format && format[i]; i++)
 	{
 		if (format[i] == '%')
@@ -33,21 +52,28 @@ int _printf(const char *format, ...)
 			{
 				if (p[c].spc == format[i + 1])
 				{
-					p[c].func(li);
+					m += p[c].func(li);
 					i++;
-					break; }
+					break;
+				}
 				else if (format[i + 1] == '%')
 				{
-					n += 1;
 					i++;
-					_putchar(format[i]);
-					break; }
+					m += _putchar(format[i]);
+					break;
+				}
 			}
 			if (p[c].func == NULL)
+			{
 				_putchar(format[i]);
+				n++;
+			}
 		}
 		else
+		{
 			_putchar(format[i]);
-	} va_end(li), i -= n;
-	return (i);
+			n++;
+		}
+	}
+	return (n + m);
 }
