@@ -24,7 +24,6 @@ int _printf(const char *format, ...)
 	{'p', _putp},
 	{'0', NULL}
 };
-
 	va_start(li, format);
 	for (i = 0; format && format[i]; i++)
 	{
@@ -49,5 +48,6 @@ int _printf(const char *format, ...)
 		}
 		else
 			_putchar(format[i]);
-	} va_end(li), i -= n, return (i);
+	} va_end(li), i -= n;
+	return (i);
 }
