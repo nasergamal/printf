@@ -45,7 +45,7 @@ int pri(const char *format, pr p[], va_list li)
 
 	if (!format || !format[0])
 		return (-1);
-	for (i = 0; format[i] != '\0'; i++)
+	for (i = 0; format && format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
@@ -58,7 +58,7 @@ int pri(const char *format, pr p[], va_list li)
 					a = 1;
 					break;
 				}
-				else if (format[i + 1] == '\0' && a)
+				else if ((format[i + 1] == '\0' || format[i + 1] == ' ') && a)
 					return (-1);
 				else if (format[i + 1] == '%')
 				{
