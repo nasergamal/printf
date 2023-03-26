@@ -50,7 +50,7 @@ int pri(const char *format, pr p[], va_list li)
 	{
 		if (format[i] == '%')
 		{
-			for (c = 0; p[c].func; c++)
+			for (c = 0; p[c].func != '0'; c++)
 			{
 				if (p[c].spc == format[i + 1])
 				{
