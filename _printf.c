@@ -26,14 +26,9 @@ int _printf(const char *format, ...)
 	{'R', _putR},
 	{'0', NULL}
 };
-	if (format != NULL)
-	{
-		va_start(li, format);
-		n = pri(format, p, li);
-		va_end(li);
-	}
-	else
-		return (-1);
+	va_start(li, format);
+	n = pri(format, p, li);
+	va_end(li);
 	return (n);
 }
 /**
@@ -46,8 +41,10 @@ int _printf(const char *format, ...)
  */
 int pri(const char *format, pr p[], va_list li)
 {
-	int i, c, n = 0, m = 0, a = 0;
+	int i, c, n = 0, a = 0;
 
+	if (!format || !format[0])
+		return (-1);
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
@@ -56,7 +53,7 @@ int pri(const char *format, pr p[], va_list li)
 			{
 				if (p[c].spc == format[i + 1])
 				{
-					m += p[c].func(li);
+					n += p[c].func(li);
 					i++;
 					a = 1;
 					break;
@@ -66,15 +63,14 @@ int pri(const char *format, pr p[], va_list li)
 				else if (format[i + 1] == '%')
 				{
 					i++;
-					m += _putchar(format[i]);
+					n += _putchar(format[i]);
 					break;
 				}
 			}
 			if (p[c].func == NULL)
 			{
 				_putchar(format[i]);
-				n++;
-			}
+				n++; }
 		}
 		else
 		{
@@ -82,5 +78,7 @@ int pri(const char *format, pr p[], va_list li)
 			n++;
 		}
 	}
-	return (n + m);
+	if (!n)
+		n = -1;
+	return (n);
 }
