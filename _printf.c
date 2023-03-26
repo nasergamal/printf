@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 	{'R', _putR},
 	{'0', NULL}
 };
-	if (format)
+	if (format != NULL)
 	{
 		va_start(li, format);
 		n = pri(format, p, li);
@@ -46,9 +46,9 @@ int _printf(const char *format, ...)
  */
 int pri(const char *format, pr p[], va_list li)
 {
-	int i, c, n = 0, m = 0;
+	int i, c, n = 0, m = 0, a = 0;
 
-	for (i = 0; format && format[i]; i++)
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
@@ -58,8 +58,11 @@ int pri(const char *format, pr p[], va_list li)
 				{
 					m += p[c].func(li);
 					i++;
+					a = 1;
 					break;
 				}
+				else if (format[i + 1] == '\0' && a)
+					return (-1);
 				else if (format[i + 1] == '%')
 				{
 					i++;
