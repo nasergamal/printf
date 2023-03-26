@@ -24,6 +24,8 @@ int _puto(va_list li);
 int _putx(va_list li);
 int _putX(va_list li);
 int _putp(va_list li);
+int _putb(va_list li);
+int _putR(va_list li);
 int _printf(const char *format, ...);
 int print_n(int in);
 
