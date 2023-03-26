@@ -10,7 +10,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int n;
+	int n = -1;
 	va_list li;
 	pr p[] = {
 	{'c', _putc},
@@ -26,9 +26,18 @@ int _printf(const char *format, ...)
 	{'R', _putR},
 	{'0', NULL}
 };
+<<<<<<< HEAD
 	va_start(li, format);
 	n = pri(format, p, li);
 	va_end(li);
+=======
+	if (format)
+	{
+		va_start(li, format);
+		n = pri(format, p, li);
+		va_end(li);
+	}
+>>>>>>> 730024e (changes)
 	return (n);
 }
 /**
@@ -78,7 +87,10 @@ int pri(const char *format, pr p[], va_list li)
 			n++;
 		}
 	}
+<<<<<<< HEAD
 	if (!n)
 		n = -1;
+=======
+>>>>>>> 730024e (changes)
 	return (n);
 }
