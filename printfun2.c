@@ -115,7 +115,8 @@ int _putp(va_list li)
  */
 int print_n(int in)
 {
-	int m = in, c = 0, i = 1, o;
+	int c = 0, i = 1, o;
+	unsigned int m = in;
 
 	if (in < 0)
 	{
