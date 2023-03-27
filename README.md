@@ -60,4 +60,39 @@ You don’t have to handle field width
 You don’t have to handle precision
 You don’t have to handle the length modifiers
 
+4. Nothing in fine print is ever good news
+(GitHub repository: printf) ADVANCED
+Use a local buffer of 1024 chars in order to call write as little as possible.
+5. My weakness is wearing too much leopard print
+(GitHub repository: printf) #advanced
+Handle the following custom conversion specifier:
+
+S : prints the string.
+Non printable characters (0 < ASCII value < 32 or >= 127) are printed this way: \x, followed by the ASCII code value in hexadecimal (upper case - always 2 characters)
+
+6. How is the world ruled and led to war? Diplomats lie to journalists and believe these lies when they see them in print
+(GitHub repository: printf) ADVANCED
+Handle the following conversion specifier: p.
+
+You don’t have to handle the flag characters
+You don’t have to handle field width
+You don’t have to handle precision
+You don’t have to handle the length modifiers
+
+7. The big print gives and the small print takes away
+(GitHub repository: printf) ADVANCED
+Handle the following flag characters for non-custom conversion specifiers:
+
++
+space
+#
+
+8. Sarcasm is lost in print
+(GitHub repository: printf) ADVANCED
+Handle the following length modifiers for non-custom conversion specifiers:
+
+l
+h
+Conversion specifiers to handle: d, i, u, o, x, X
+
 
