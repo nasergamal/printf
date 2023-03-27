@@ -123,18 +123,11 @@ int print_n(int in)
 		m = m * -1;
 		c++;
 	}
-	if (m == 0)
-	{
-		_putchar('0');
-		c++;
-		return (c);
-	}
 	while ((m / i) > 9)
 		i *= 10;
 	while (i > 0)
 	{
-		o = m / i;
-		o = o % 10;
+		o = (m / i) % 10;
 		c++;
 		_putchar(o + '0');
 		i /= 10;
