@@ -46,6 +46,8 @@ int pri(const char *format, pr p[], va_list li)
 	int i, n = 0;
 	int (*function)(va_list);
 
+	if (!format)
+		return (-1);
 	for (i = 0; format && format[i]; i++)
 	{
 		if (format[i] == '%')
@@ -55,7 +57,7 @@ int pri(const char *format, pr p[], va_list li)
 			else if (format[i + 1] == '%')
 			{
 				i++;
-					n += _putchar(format[i]);
+				n += _putchar(format[i]);
 			}
 			else
 			{
@@ -66,7 +68,11 @@ int pri(const char *format, pr p[], va_list li)
 					i++;
 				}
 				else
+				{
+					if (format[i + 1] == ' ' && !format[i + 2])
+						return (-1);
 					n += _putchar(format[i]);
+				}
 			}
 		}
 		else
@@ -74,8 +80,6 @@ int pri(const char *format, pr p[], va_list li)
 			n += _putchar(format[i]);
 		}
 	}
-	if (!n)
-		n = -1;
 	return (n);
 }
 /**
