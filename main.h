@@ -10,10 +10,11 @@
  */
 typedef struct print
 {
-	char spc;
+	char *spc;
 	int (*func)(va_list);
 } pr;
 int pri(const char *format, pr p[], va_list li);
+int (*funcget(const char *fmt, pr p[], int *i))(va_list);
 int _putchar(char c);
 int _putc(va_list li);
 int _puts(va_list li);
