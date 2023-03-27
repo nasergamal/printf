@@ -43,11 +43,13 @@ int _printf(const char *format, ...)
  */
 int pri(const char *format, pr p[], va_list li)
 {
-	int i, n = 0;
+	int i = 0, n = 0;
 	int (*function)(va_list);
 
 	if (!format)
 		return (-1);
+	if (!format[i])
+		return (0);
 	for (i = 0; format && format[i]; i++)
 	{
 		if (format[i] == '%')
