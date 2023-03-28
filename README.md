@@ -60,3 +60,11 @@ You don’t have to handle field width
 You don’t have to handle precision
 You don’t have to handle the length modifiers
 
+4. Nothing in fine print is ever good news
+(GitHub repository: printf) ADVANCED
+Use a local buffer of 1024 chars in order to call write as little as possible.
+
+5. My weakness is wearing too much leopard print
+(GitHub repository: printf) #advanced
+Handle the following custom conversion specifier:
+
