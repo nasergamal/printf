@@ -71,18 +71,18 @@ int _puti(va_list li)
  */
 int _putu(va_list li)
 {
-	int m, j, c = 0;
-	unsigned long int n, i = 100000000;
+	int c = 0;
+	unsigned int n, m, i = 1;
 
-	n = (va_arg(li, unsigned long int));
-	if (n > i)
+	n = (va_arg(li, unsigned int));
+	while ((n / i) > 9)
+		i *= 10;
+	while (i > 0)
 	{
-		m = n / i;
-		j = n % i;
-		c = print_n(m);
-		c += print_n(j);
+		m = (n / i) % 10;
+		c++;
+		_putchar(m + '0');
+		i /= 10;
 	}
-	else
-		c = print_n(n);
 	return (c);
 }
