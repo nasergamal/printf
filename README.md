@@ -81,3 +81,19 @@ You don’t have to handle field width
 You don’t have to handle precision
 You don’t have to handle the length modifiers
 
+7. The big print gives and the small print takes away
+(GitHub repository: printf) ADVANCED
+Handle the following flag characters for non-custom conversion specifiers:
+
++
+space
+#
+
+8. Sarcasm is lost in print
+(GitHub repository: printf) ADVANCED
+Handle the following length modifiers for non-custom conversion specifiers:
+
+l
+h
+Conversion specifiers to handle: d, i, u, o, x, X
+
