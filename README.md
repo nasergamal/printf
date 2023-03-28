@@ -113,3 +113,10 @@ Handle the 0 flag character for non-custom conversion specifiers.
 (GitHub repository: printf) ADVANCED
 Handle the - flag character for non-custom conversion specifiers.
 
+13. Print is the sharpest and the strongest weapon of our party
+(GitHub repository: printf) ADVANCED
+
+Handle the following custom conversion specifier:
+
+r : prints the reversed string
+
