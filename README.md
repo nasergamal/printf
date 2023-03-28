@@ -109,3 +109,7 @@ Handle the precision for non-custom conversion specifiers.
 (GitHub repository: printf) ADVANCED
 Handle the 0 flag character for non-custom conversion specifiers.
 
+12. Every time that I wanted to give up, if I saw an interesting textile, print what ever, suddenly I would see a collection
+(GitHub repository: printf) ADVANCED
+Handle the - flag character for non-custom conversion specifiers.
+
