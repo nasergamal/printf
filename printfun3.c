@@ -63,5 +63,29 @@ int _putR(va_list li)
 		}
 	}
 	return (c);
+}
+/**
+ * _putr - print string in reverse
+ * @li: variadic list
+ *
+ * Return: count
+ */
+int _putr(va_list li)
+{
+	int i, c;
+	char *r;
 
+	r = (va_arg(li, char*));
+
+	if (r == NULL)
+	{
+		_printf("(null)");
+		return (6);
+	}
+	for (i = 0; r[i]; i++)
+		;
+	c = i;
+	for  (; i >= 0; i--)
+		_putchar(r[i]);
+	return (c);
 }

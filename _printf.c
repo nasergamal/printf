@@ -15,15 +15,16 @@ int _printf(const char *format, ...)
 	pr p[] = {
 	{"c", _putc},
 	{"s", _puts},
-	{"i", _puti},
-	{"d", _puti},
-	{"u", _putu},
-	{"o", _puto},
-	{"x", _putx},
-	{"X", _putX},
+	{"i", _puti}, {"hi", _puthi}, {"li", _putli},
+	{"d", _puti}, {"hd", _puthi}, {"ld", _putli},
+	{"u", _putu}, {"hu", _puthu}, {"lu", _putlu},
+	{"o", _puto}, {"ho", _putho}, {"lo", _putlo},
+	{"x", _putx}, {"hx", _puthx}, {"lx", _putlx},
+	{"X", _putX}, {"hX", _puthX}, {"lX", _putlX},
 	{"p", _putp},
 	{"b", _putb},
 	{"R", _putR},
+	{"r", _putr},
 	{NULL, NULL}
 };
 

@@ -27,6 +27,17 @@ int _putX(va_list li);
 int _putp(va_list li);
 int _putb(va_list li);
 int _putR(va_list li);
+int _putr(va_list li);
+int _puthi(va_list li);
+int _putli(va_list li);
+int _puthu(va_list li);
+int _putlu(va_list li);
+int _puthx(va_list li);
+int _putlx(va_list li);
+int _puthX(va_list li);
+int _putlX(va_list li);
+int _putho(va_list li);
+int _putlo(va_list li);
 int _printf(const char *format, ...);
 int print_n(int in);
 

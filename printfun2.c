@@ -18,6 +18,16 @@ int _puto(va_list li)
 		n /= 8;
 	}
 	m = c;
+	if (c > 11)
+	{
+		c = 11;
+		m = c;
+	}
+	if (o[m - 1] == 0)
+	{
+		c -= 1;
+		m -= 1;
+	}
 	for (c -= 1; c >= 0; c--)
 		_putchar(o[c] + '0');
 
@@ -46,6 +56,11 @@ int _putx(va_list li)
 		n /= 16;
 	}
 	m = c;
+	if (c > 8)
+	{
+		c = 8;
+		m = c;
+	}
 	for (c -= 1; c >= 0; c--)
 		_putchar(h[c]);
 	return (m);
@@ -73,6 +88,11 @@ int _putX(va_list li)
 		n /= 16;
 	}
 	m = c;
+	if (c > 8)
+	{
+		c = 8;
+		m = c;
+	}
 	for (c -= 1; c >= 0; c--)
 		_putchar(h[c]);
 	return (m);
