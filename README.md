@@ -126,3 +126,8 @@ Handle the following custom conversion specifier:
 
 R: prints the rot13'ed string
 
+15. *
+(GitHub repository: printf) ADVANCED
+All the above options work well together.
+
+#endif
