@@ -105,3 +105,7 @@ Handle the field width for non-custom conversion specifiers.
 (GitHub repository: printf )
 Handle the precision for non-custom conversion specifiers.
 
+11. It's depressing when you're still around and your albums are out of print
+(GitHub repository: printf) ADVANCED
+Handle the 0 flag character for non-custom conversion specifiers.
+
