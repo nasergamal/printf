@@ -87,5 +87,5 @@ int _putr(va_list li)
 	c = i;
 	for  (; i >= 0; i--)
 		_putchar(r[i]);
-	return (c);
+	return ((c - 1));
 }

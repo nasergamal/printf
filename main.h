@@ -26,6 +26,7 @@ int _putx(va_list li);
 int _putX(va_list li);
 int _putp(va_list li);
 int _putb(va_list li);
+int _putS(va_list li);
 int _putR(va_list li);
 int _putr(va_list li);
 int _puthi(va_list li);

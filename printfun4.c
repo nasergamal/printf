@@ -126,6 +126,11 @@ int _putho(va_list li)
 		n /= 8;
 	}
 	m = c;
+	if (!c)
+	{
+		_putchar('0');
+		return (1);
+	}
 	if (c > 5)
 	{
 		c = 5;
@@ -136,7 +141,7 @@ int _putho(va_list li)
 		c -= 1;
 		m -= 1;
 	}
-	else if (o[m] >= 5)
+	else if (o[m - 1] >= 5)
 	{
 		_putchar('1');
 		m += 1;

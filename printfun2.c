@@ -10,7 +10,7 @@ int _puto(va_list li)
 	int c, o[100], m;
 	unsigned long int n;
 
-	n = (va_arg(li, unsigned long int));
+	n = (va_arg(li, unsigned int));
 
 	for (c = 0; n != 0 ; c++)
 	{
@@ -18,6 +18,11 @@ int _puto(va_list li)
 		n /= 8;
 	}
 	m = c;
+	if (!c)
+	{
+		_putchar('0');
+		return (1);
+	}
 	if (c > 11)
 	{
 		c = 11;
@@ -45,7 +50,7 @@ int _putx(va_list li)
 	char h[100];
 	unsigned long int n;
 
-	n = (va_arg(li, unsigned long int));
+	n = (va_arg(li, unsigned int));
 
 	for (c = 0; n != 0 ; c++)
 	{
@@ -54,6 +59,11 @@ int _putx(va_list li)
 		else
 			h[c] = ((n % 16) + 87);
 		n /= 16;
+	}
+	if (!c)
+	{
+		_putchar('0');
+		return (1);
 	}
 	m = c;
 	if (c > 8)
@@ -77,7 +87,7 @@ int _putX(va_list li)
 	char h[100];
 	unsigned long int n;
 
-	n = (va_arg(li, unsigned long int));
+	n = (va_arg(li, unsigned int));
 
 	for (c = 0; n != 0 ; c++)
 	{
@@ -86,6 +96,11 @@ int _putX(va_list li)
 		else
 			h[c] = (n % 16) + 55;
 		n /= 16;
+	}
+	if (!c)
+	{
+		_putchar('0');
+		return (1);
 	}
 	m = c;
 	if (c > 8)
@@ -119,6 +134,11 @@ int _putp(va_list li)
 		else
 			p[c] = ((n % 16) + 87);
 		n /= 16;
+	}
+	if (!c)
+	{
+		write(1, "(nil)", 6);
+		return (5);
 	}
 	_putchar('0');
 	_putchar('x');

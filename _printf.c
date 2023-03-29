@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 	va_list li;
 	pr p[] = {
 	{"c", _putc},
-	{"s", _puts},
+	{"s", _puts}, {"S", _putS},
 	{"i", _puti}, {"hi", _puthi}, {"li", _putli},
 	{"d", _puti}, {"hd", _puthi}, {"ld", _putli},
 	{"u", _putu}, {"hu", _puthu}, {"lu", _putlu},

@@ -23,6 +23,11 @@ int _puthx(va_list li)
 			h[c] = ((n % 16) + 87);
 		n /= 16;
 	}
+	if (!c)
+	{
+		_putchar('0');
+		return (1);
+	}
 	m = c;
 	if (c > 4)
 	{
@@ -54,6 +59,11 @@ int _putlx(va_list li)
 		else
 			h[c] = ((n % 16) + 87);
 		n /= 16;
+	}
+	if (!c)
+	{
+		_putchar('0');
+		return (1);
 	}
 	m = c;
 	if (c > 16)
@@ -88,6 +98,11 @@ int _puthX(va_list li)
 			h[c] = (n % 16) + 55;
 		n /= 16;
 	}
+	if (!c)
+	{
+		_putchar('0');
+		return (1);
+	}
 	m = c;
 	if (c > 8)
 	{
@@ -120,6 +135,11 @@ int _putlX(va_list li)
 			h[c] = (n % 16) + 55;
 		n /= 16;
 	}
+	if (!c)
+	{
+		_putchar('0');
+		return (1);
+	}
 	m = c;
 	if (c > 16)
 	{
@@ -148,6 +168,11 @@ int _putlo(va_list li)
 	{
 		o[c] = n % 8;
 		n /= 8;
+	}
+	if (!c)
+	{
+		_putchar('0');
+		return (1);
 	}
 	m = c;
 	if (o[m - 1] == 0)
