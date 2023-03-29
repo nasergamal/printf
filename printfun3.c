@@ -12,12 +12,17 @@ int _putb(va_list li)
 	int c, o[100], m;
 	unsigned long int n;
 
-	n = (va_arg(li, unsigned long int));
+	n = (va_arg(li, unsigned int));
 
 	for (c = 0; n != 0 ; c++)
 	{
 		o[c] = n % 2;
 		n /= 2;
+	}
+	if (!c)
+	{
+		_putchar('0');
+		return (1);
 	}
 	m = c;
 	for (c -= 1; c >= 0; c--)

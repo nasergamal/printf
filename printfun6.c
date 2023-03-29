@@ -11,6 +11,11 @@ int _putS(va_list li)
 	char *s, b[2];
 
 	s = va_arg(li, char *);
+	if (s == NULL)
+	{
+		_printf("(null)");
+		return (6);
+	}
 	for (i = 0; s[i]; i++)
 	{
 		if (!(s[i] > 0 && s[i] < 32) && !((s[i] >= 127)))

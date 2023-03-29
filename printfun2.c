@@ -127,6 +127,11 @@ int _putp(va_list li)
 
 	n = (va_arg(li, unsigned long int));
 
+	if (!n)
+	{
+		write(1, "(nil)", 6);
+		return (5);
+	}
 	for (c = 0; n != 0 ; c++)
 	{
 		if (n % 16 < 10)
@@ -134,11 +139,6 @@ int _putp(va_list li)
 		else
 			p[c] = ((n % 16) + 87);
 		n /= 16;
-	}
-	if (!c)
-	{
-		write(1, "(nil)", 6);
-		return (5);
 	}
 	_putchar('0');
 	_putchar('x');
